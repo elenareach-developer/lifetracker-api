@@ -23,7 +23,7 @@ function getDatabaseUriOLD() {
   return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
  function getDatabaseUri(){
-    retrun `postgres://registrations_user:GW6bDQamGYoSGwaMU2yX9w9ZSIuy04d2@dpg-chs0rre4dadfn67f9pq0-a/registrations`
+    return `postgres://registrations_user:GW6bDQamGYoSGwaMU2yX9w9ZSIuy04d2@dpg-chs0rre4dadfn67f9pq0-a/registrations`
  }
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
 const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13
