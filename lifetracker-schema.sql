@@ -48,12 +48,3 @@ CREATE TABLE sleep (
 
 
 
-//3
-5
-2
-4
-6
-
-[ { name:"category",label: "Aerobics", value: 355 },
-{ name:"category", label: "Pilates", value: 54 },
-{ name:"category",label: "Aqua Aerobics", value: 43 },]

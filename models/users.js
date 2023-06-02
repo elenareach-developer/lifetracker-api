@@ -23,7 +23,6 @@ class User {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      location: user.location,
       date: user.date,
     }
   }
@@ -69,12 +68,12 @@ class User {
    **/
 
   static async register(creds) {
-    const { email, password, firstName, lastName, location} = creds
-    console.log("email, password, firstName, lastName, location")
-    console.log(email, password, firstName, lastName, location)
-    const requiredCreds = ["email", "password", "firstName", "lastName", "location"]
+    const { email, password, firstName, lastName} = creds
+    console.log("email, password, firstName, lastName")
+    console.log(email, password, firstName, lastName)
+    const requiredCreds = ["email", "password", "firstName", "lastName"]
     // try {
-    //   validationFields({ required: requiredCreds, obj: creds, location: "user registration" })
+    //   validationFields({ required: requiredCreds, obj: creds: "user registration" })
     //    console.log("did not pas validation")
     //  } catch (err) {
     //    throw err
@@ -93,14 +92,12 @@ class User {
           first_name,
           last_name,
           email,
-          location
         )
-        VALUES ('${password}', '${firstName}', '${lastName}', '${normalizedEmail}', '${location}')
+        VALUES ('${password}', '${firstName}', '${lastName}', '${normalizedEmail}')
         RETURNING id,
                   email,            
                   first_name AS "firstName", 
                   last_name AS "lastName",
-                  location,
                   date
                   `
     )
@@ -124,7 +121,6 @@ class User {
     password,
     first_name AS "firstName",
     last_name AS "lastName",
-    location,
     date              
  FROM users
  WHERE email = "${email}"`)
@@ -134,7 +130,6 @@ class User {
               password,
               first_name AS "firstName",
               last_name AS "lastName",
-              location,
               date              
            FROM users
            WHERE email = '${email}'`
@@ -157,7 +152,6 @@ class User {
               password,
               first_name AS "firstName",
               last_name AS "lastName",
-              location,
               date              
            FROM users
            WHERE id = ${userId}`
